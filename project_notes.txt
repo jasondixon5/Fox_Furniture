@@ -1,0 +1,21 @@
+
+Testing server address:
+http:// 127.0.0.1:5000/
+
+
+Routes
+-views
+-errors
+
+Templates
+-index
+-projects
+-fox furniture main
+-fox funiture catalogue
+-fox furniture order
+-fox furniture confirmaton
+
+DB
+-furniture categories
+-furniture items
+
