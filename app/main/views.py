@@ -1,4 +1,4 @@
-from flask import render_template, session, redirect, url_for, current_app
+from flask import render_template, session, redirect, url_for, current_app, send_file
 from . import main
 from .. import db
 # from ..models import User
@@ -14,3 +14,13 @@ def index():
 def projects():
 
     return render_template("projects.html")
+
+@main.route(
+    "/static/docs/Jason_Dixon_Resume.pdf", 
+    methods=["GET"])
+def send_resume():
+    
+    return send_file(
+        "./static/docs/Jason_Dixon_Resume.pdf",
+        attachment_filename = "Jason_Dixon_Resume.pdf")
+
