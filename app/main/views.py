@@ -48,7 +48,7 @@ def fox_order_form():
     else:
         #form.validate_on_submit():
         # TODO - store order in db
-        return redirect(url_for("/projects/fox_furniture_order/order_confirmation/"))
+        return redirect(url_for("main.fox_order_confirmation"))
 
 @main.route("/projects/fox_furniture_order/order_confirmation/", methods=["GET"])
 def fox_order_confirmation():
