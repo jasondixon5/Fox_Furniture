@@ -10,11 +10,6 @@ def index():
     
     return render_template("index.html")
 
-@main.route("/projects", methods=["GET"])
-def projects():
-
-    return render_template("projects.html")
-
 @main.route(
     "/static/docs/Jason_Dixon_Resume.pdf", 
     methods=["GET"])
@@ -23,4 +18,10 @@ def send_resume():
     return send_file(
         "./static/docs/Jason_Dixon_Resume.pdf",
         attachment_filename = "Jason_Dixon_Resume.pdf")
+
+@main.route("/projects", methods=["GET"])
+def projects():
+
+    return render_template("projects.html")
+
 
