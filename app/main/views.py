@@ -1,9 +1,21 @@
-from flask import render_template, session, redirect, url_for, current_app, send_file
+from flask import request, render_template, session, redirect, url_for, current_app, send_file
 from . import main
 from .. import db
+from .forms import FoxOrderForm
+from ..models import ProductCategory
 # from ..models import User
 # from ..email import send_email
-# from .forms import NameForm
+
+"""
+TODO:
+* Add home page for Fox Furniture
+* Add category page for Fox Furniture
+* Add confirmation page for Fox Furniture
+
+
+HISTORY:
+
+"""
 
 @main.route('/', methods=['GET'])
 def index():
@@ -24,4 +36,20 @@ def projects():
 
     return render_template("projects.html")
 
+@main.route("/projects/fox_furniture_order/", methods=["GET", "POST"])
+def fox_order_form():
+    form = FoxOrderForm()
+    form.product_category.choices = [(row.id, row.name) for row in \
+                            ProductCategory.query.all()]
 
+    if request.method == "GET":
+        return render_template("fox_order.html", form=form)
+    
+    else:
+        #form.validate_on_submit():
+        # TODO - store order in db
+        return redirect(url_for("/projects/fox_furniture_order/order_confirmation/"))
+
+@main.route("/projects/fox_furniture_order/order_confirmation/", methods=["GET"])
+def fox_order_confirmation():
+    return render_template("fox_order_confirm.html")
