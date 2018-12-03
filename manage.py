@@ -71,7 +71,6 @@ def seed_products():
         for row in reader:
             category = row["Category"]
             product_name = row["Product Name"]
-            product_code = row[""]
             category_id = product_category_dict.get(category, 0)
             if product_name not in product_name_list:
                 # add to name list to prevent dupicate adds to product table
