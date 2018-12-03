@@ -52,5 +52,42 @@ def seed():
     db.session.add_all(category_objects)
     db.session.commit()
 
+@manager.command
+def seed_products():
+    """See products table with initial data"""
+    import csv
+    from app.models import Product
+
+    # Store data from source file
+    filename = "db_seed/store_db_initial_sources.csv"
+    product_category_dict = {"Office Supplies": 1,
+                            "Technology": 2,
+                            "Furniture": 3}
+    product_name_list = []
+    product_category_tuples= []
+
+    with open(filename) as f:
+        reader = csv.DictReader(f, delimiter=",")
+        for row in reader:
+            category = row["Category"]
+            product_name = row["Product Name"]
+            product_code = row[""]
+            category_id = product_category_dict.get(category, 0)
+            if product_name not in product_name_list:
+                # add to name list to prevent dupicate adds to product table
+                product_name_list.append(product_name)
+                product_category_tuples.append((product_name, category_id))
+            else:
+                continue
+
+    # Create row objects and add to db
+    product_objects = []
+    for name_id_tup in product_category_tuples:
+        obj = Product(name=name_id_tup[0], category_id=name_id_tup[1])
+        product_objects.append(obj)
+
+    db.session.add_all(product_objects)
+    db.session.commit()
+
 if __name__ == '__main__':
     manager.run()
