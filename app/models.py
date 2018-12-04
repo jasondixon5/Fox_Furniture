@@ -28,7 +28,6 @@ class Product(db.Model):
     __tablename__ = "products"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True, nullable=False)
-    product_code = db.Column(db.String(), unique=True, nullable=False)
     # Category is FK
     category_id = db.Column(
         db.Integer, 
