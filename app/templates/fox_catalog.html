@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block page_content %}
+<div class="catalog-container">
+    <!-- <div class="catalog-item-container" style="background-color: red; height: 188px; width: 162px">-->
+            <div class="catalog-item-container">   
+        <div class="catalog-item-image" >
+            <img src="{{ url_for('static', filename = 'images/catalog/tom-wooden-bookcase-1.png') }}" 
+            alt="Example picture for bookcase category"
+            width="100"
+            height="100">
+        </div>
+        <div class="catalog-item-name"><p>Bookcase</p>
+        </div>
+    </div>
+    <div class="catalog-item-container">
+            <div class="catalog-item-image">
+                <img src="{{ url_for('static', filename = 'images/catalog/file-cabinet.png') }}">
+            </div>
+            <div class="catalog-item-name"><p>Filing Cabinet</p>
+            </div>
+        </div>
+</div>
+{% endblock %}
+

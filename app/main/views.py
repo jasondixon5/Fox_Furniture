@@ -53,3 +53,7 @@ def fox_order_form():
 @main.route("/projects/fox_furniture_order/order_confirmation/", methods=["GET"])
 def fox_order_confirmation():
     return render_template("fox_order_confirm.html")
+
+@main.route("/projects/fox_furniture/catalog/")
+def fox_catalog():
+    return render_template("fox_catalog.html")

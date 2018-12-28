@@ -1,0 +1,9 @@
+p {
+    color:red;
+}
+
+.catalog-item-container {
+    background-color: cyan; 
+    width: 162px;
+    height: 188px
+}
