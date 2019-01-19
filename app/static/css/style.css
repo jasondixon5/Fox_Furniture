@@ -1,9 +1,22 @@
-p {
-    color:red;
+.catalog-container {
+    float: right;
+    padding: 50px 50px 50px 50px;
+    position: relative;
+}
+
+.catalog-item-name {
+
+    font-weight: 500;
+
 }
 
 .catalog-item-container {
     background-color: cyan; 
-    width: 162px;
-    height: 188px
+    padding: 15px 100px 15px 100px;
+}
+
+.catalog-item-image {
+
+    width: 10%;
+    
 }

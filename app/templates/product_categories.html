@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block page_content %}
+<div class="">
+    <h2 class="">Fox Furniture</h2>
+    <p>
+        <table>
+            {% for category in product_category_list %}
+            <tr><td>{{category}}</td></tr>
+            {% endfor %}
+        </table>
+    </p>
+{% endblock %}

@@ -2,7 +2,7 @@ from flask import request, render_template, session, redirect, url_for, current_
 from . import main
 from .. import db
 from .forms import FoxOrderForm
-from ..models import ProductCategory
+from ..models import ProductCategory, Product
 # from ..models import User
 # from ..email import send_email
 
@@ -57,3 +57,17 @@ def fox_order_confirmation():
 @main.route("/projects/fox_furniture/catalog/")
 def fox_catalog():
     return render_template("fox_catalog.html")
+
+@main.route("/projects/fox_furniture/api/types")
+def db_get_product_categories():
+    
+    product_category_list = ProductCategory.query.all()
+
+    return render_template("product_categories.html", product_category_list=product_category_list)
+
+@main.route("/projects/fox_furniture/api/products")
+def db_get_products():
+
+    products = Product.query.all()
+
+    return render_template("products.html", products=products)
